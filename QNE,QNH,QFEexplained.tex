@@ -1,0 +1,157 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx}
+\usepackage{fontspec}
+\usepackage{geometry}
+\usepackage{indentfirst}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{caption}
+\setmainfont{Times New Roman}
+\geometry{a4paper,left=3cm,right=3cm,top=2.5cm,bottom=2.5cm}
+
+\title{\Huge QNE, QNH and QFE Explained}
+\author{\Large Wang Zichun\date{}}
+
+\begin{document}
+\newgeometry{top=4cm}
+\maketitle
+\vspace*{12cm}
+\begin{center}
+\LARGE\textbf{Acknowledgement}\\
+\vspace*{0.1cm}
+\mbox{\large Thank Liu Fei and Zhuang Nanjian for helping understand knowledge below.}
+\end{center}
+\thispagestyle{empty}
+
+\restoregeometry
+\newpage
+\setcounter{page}{1}
+\section{Illustration of QNE, QNH and QFE}
+Note that QNE, QNH and QFE are all readings of pressure, therefore the engineering units of them are all hPa(hectopascal) rather than m(meter).
+
+QNH is the pressure of local sea level or Yellow sea level in our country. Whatever the local pressure field changes into, QNH is always the pressure measured at local sea level. The local sea level is fixed geographically, but the pressure measured here varies over the time. For example, QNH can be 1011.1 hPa at dawn and 995 hPa at dusk.
+
+On the contrary, QNE is a constant and its value equals 1013.25 hPa. This value is a significant parameter in ISA environment. Because mean sea level is just an ideal reference level, local sea level in most cases would not overlap with mean sea level. Take a look at the positions of two levels. Keep in mind that pressure decreases as altitude increases, we can find out that when QNH greater than 1013.25 hPa, mean sea level(QNE pressure level) is above local sea level(QNH pressure level), and when QNH less than 1013.25 hPa, mean sea level is below local sea level. 
+
+Compared with QNH and QNE, QFE is quiet simple. QFE is just the pressure on RWY surface, namely it is the barometer reading measured on RWY.
+
+These three pressure levels discussed above are shown in the following figure.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{figure/1.pdf}
+	\caption{QNH represents pressure of local sea level and QFE indicates pressure on RWY surface. Mean sea level(QNE level, the dotted line) is above local sea level(QNH level) if QNH more than 1013.25 hPa, and if QNH less than 1013.25 hPa the reverse is true(the curved line).}
+\end{figure}
+
+The difference between QNE and QNH is subtle and confusing. Take an example from daily life may help understand. Remind we learn in class the price of a given commodity is determined by its value. Because value of this commodity remains unchanged during a period, thus the price should be fixed. We might call this constant price as “true price”. However, we also know that demand of commodity affects its price, so the price of the commodity changes day by day. We call this waving price as “price on market”. As shown in the figure below, the “price on market” deviates from the “true price” in some certain range. Recall the difference between QNH and QNE, we can point out on one hand the “true price” is like QNH with its value related to a certain thing, and on the other hand the deviation of “price on market” from “true price” mimics the movement of QNE level in reference to QNH level.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{figure/2.pdf}
+	\caption{An example taken from finance may help. The “true price” is fixed by internal value and “price on market” is waving due to the ever-changing demand of this commodity.}
+\end{figure}
+
+\section{Obtain height based on QNE, QNH and QFE}
+Note that QNE, QNH and QFE are horizontal pressure levels acting like references. Therefore, having reference level readings and the pressure value at some place doesn’t present you height between them immediately. The converting work from pressure difference to height requires a reference table and it may take efforts.
+
+We here discuss three scenarios and the heights obtained from them:
+
+(1) scenario 1, between RWY and QNE:
+
+Set altimeter setting to QNE, the altimeter reading on RWY surface represents local pressure altitude, also known as RWY pressure altitude;
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{figure/3.pdf}
+	\caption{Altimeter set to QNE then its reading on RWY indicates local(RWY surface) pressure altitude.}
+\end{figure}
+
+(2) scenario 2, between RWY and QNH:
+	
+Set altimeter setting to QNH, the altimeter reading on RWY surface represents RWY elevation. Notice that RWY surface and QNH level(local sea level) are geographically fixed, thus RWY elevation is a constant and marked in aerodrome chart;
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{figure/4.pdf}
+	\caption{Altimeter set to QNH and its reading on RWY indicates RWY elevation.}
+\end{figure}
+
+(3) scenario 3, between certain point in-air and QFE:
+
+Take an arbitrary point in the air, altitude reading on altimeter whose setting is QFE represents pressure altitude of this point from RWY.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{figure/5.pdf}
+	\caption{Altimeter set to QFE and its reading at some certain point indicates pressure altitude of this point from RWY(denoted by $\Delta h_{\rm p}$).}
+\end{figure}
+
+Since the altimeter works through converting pressure difference to altitude, we would think intuitively that its reading on RWY surface is in fact converted from difference between QFE and reference pressure level. However, it makes no sense comparing two pressure levels then obtaining height because QNH, QNE and QFE are all reference levels on which heights are measured.
+
+For the convenience of remembering, a table is summarized below where “airborne” is another way to express “certain point in-air”.
+\renewcommand{\thetable}{}
+\begin{table}[H]
+	\caption{Pressure altitude measured by altimeter at different settings.}
+	\centering
+	\begin{tabular}{lll} 
+		\toprule[2pt]
+		Altimeter setting	& On RWY							&  Airborne												\\  
+		\midrule
+		QNE					& local pressure altitude			& local pressure altitude + $\Delta h_{\rm p}$			\\  
+		QNH					& RWY elevation						& RWY elevation + $\Delta h_{\rm p}$					\\  
+		QFE					& 0 (precisely, is the cabin height)& $\Delta h_{\rm p}$ (precisely, is the cabin height + $\Delta h_{\rm p}$) \\  
+		\bottomrule[2pt]
+	\end{tabular}
+\end{table}
+
+\section{Choose altimeter setting among QNH, QNE and QFE}
+Altimeter setting plays an important role in a flight. During different flight phases the altimeter setting will differ.
+
+(1) QNH used on departure and approach:
+
+During departure and approach phase, obstacle clearance should be taken into account. Considering that obstacle height(or its altitude) marked in aeronautical charts is measured from local sea level, choosing QNH as altimeter setting ensures pilots checking the safety clearance from obstacles.
+
+Another reason is that QNHs among a certain region, for example, a province, are approximately equal, thus making pilots divert to an alternate more convenient.
+
+(2) QNE used en-route:
+
+Due to the extremely difference among QNHs over the world, ISA environment proves perfect in assuring safety during cruise phase. That’s why pilots shall set altimeter from QNH to QNE when passing transition level.
+
+(3) QFE classified in military airports:
+
+Unless otherwise agreed, personnel in civil aviation cannot get access to QFE in military airports because airport location can be inferred from QFE which indicates RWY surface pressure.
+
+It is worthwhile to notice that QFE covers the disparity between QNH and QNE. QNH level will probably not overlap with QNE on most occasions. As time goes by when aircrafts taxi and then take off, the difference between QNH and QNE becomes too sharp for pilots to keep aware of aircraft altitude. Recall that altimeter whose setting is QFE indicates height from RWY when airborne. Therefore, setting altimeter to QFE will address the problem of unawareness of altitude. Simply put, QFE functions as a “set to zero” button on a counter.
+
+\section{Use correction table to obtain local pressure altitude}
+Principle behind the correction calculation is shown as follow:
+
+If QNH less than 1013.25 hPa, QNE level is below QNH level, resulting a difference between local pressure altitude and RWY elevation as shown in the following figure. The local pressure altitude can be achieved through:
+$$\rm{local\ pressure\ altitude\ =\ RWY\ elevation\ +\ correction.}$$
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.95\textwidth]{figure/6.pdf}
+	\caption{Difference between local pressure altitude and RWY elevation if QNH less than 1013.25 hPa. The correction is exactly this difference.}
+\end{figure}
+
+Otherwise, if QNH greater than 1013.25 hPa, QNE level comes above QNH level. The difference between local pressure altitude and RWY elevation can be observed in following figure and local pressure altitude is given by:
+$$\rm{local\ pressure\ altitude\ =\ RWY\ elevation\ -\ correction.}$$
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.95\textwidth]{figure/7.pdf}
+	\caption{Difference between local pressure altitude and RWY elevation if QNH more than 1013.25 hPa. The correction is exactly this difference.}
+\end{figure}
+
+With the principle above, method to obtain local pressure altitude goes down the following steps:
+
+(1) get QNH value;
+
+(2) refer to correction table given below, find the corresponding correction value;
+
+(3) add correction value to RWY elevation. The result will be local pressure altitude.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.56\textwidth]{figure/8.pdf}
+	\caption{Correction table from B737-800 FPPM. Also see aerodynamics textbook.}
+\end{figure}
+
+Note that correction data in the table is signed as positive or negative, so we don’t have to do adding or subtracting according to equations above. An example is given below correction table to show how this method works.
+
+Particularly, RWY elevation will equal local pressure altitude when QNE level happens to overlap with QNH level, which is quite rare in real life.
+
+\end{document}
